@@ -1,9 +1,11 @@
+from pessoa import *
+
 import hashlib
 
-class Usuario(object):
+class Usuario(Pessoa):
 
-	def __init__(self, nome='', usuario='', password=''):
-			self.__nome = nome;
+	def __init__(self, nome, cpf, endereco, usuario, password=''):
+			Pessoa.__init__(nome, cpf, endereco)			
 			self.__usuario = usuario
 			self.__password = self.__mapemamento_password(password)
 
