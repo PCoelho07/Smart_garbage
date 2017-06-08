@@ -1,3 +1,5 @@
+
+
 class Pessoa(object):
 
 	def __init__(self, nome, cpf, endereco):

@@ -11,9 +11,6 @@ class Usuario(Pessoa):
 
 	# Getters
 
-	def get_nome(self):
-		return self.__nome
-
 	def get_usuario(self):
 		return self.__usuario
 
@@ -22,6 +19,7 @@ class Usuario(Pessoa):
 		return self.__password
 
 	# Setters
+
 	def set_nome(self, nome=''):
 		self.__nome = nome
 
