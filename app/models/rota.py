@@ -21,3 +21,13 @@ class Rota(object):
 	'''
 		TO DO ANOTHER METHODS
 	'''
+
+	def __gerar_rota_padrao(self):
+		pass
+
+	def __gerar_rota_personalizada(self):
+		pass
+
+	
+
+

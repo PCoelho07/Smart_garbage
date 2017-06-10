@@ -2,12 +2,12 @@ from pessoa import *
 
 class Cliente(Pessoa):
 
-	def __init__(self, nome, cpf, endereco, lixo):
+	def __init__(self, nome, cpf, endereco, lixeira):
 		Pessoa.__init__(nome, cpf, endereco)
-		self.__lixo = lixo
+		self.__lixeira = lixeira
 
-	def get_lixo(self):
-		return self.__lixo
+	def get_lixeira(self):
+		return self.__lixeira
 
-	def set_lixo(self, value):
-		self.__lixo = value
+	def set_lixeira(self, value):
+		self.__lixeira = value
