@@ -5,9 +5,9 @@ import hashlib
 class Usuario(Pessoa):
 
 	def __init__(self, nome, cpf, endereco, usuario, password=''):
-			Pessoa.__init__(nome, cpf, endereco)			
-			self.__usuario = usuario
-			self.__password = self.__security_pass(password)
+		Pessoa.__init__(nome, cpf, endereco)			
+		self.__usuario = usuario
+		self.__password = self.__security_pass(password)
 
 	# Getters
 

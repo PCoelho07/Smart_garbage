@@ -1,3 +1,5 @@
+
+
 class Lixeira(object):
 	
 	def __init__(self, quantidade ='', tipo_lixo = '', __endereco = ''):
