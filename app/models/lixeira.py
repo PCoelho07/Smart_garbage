@@ -1,7 +1,8 @@
-
+#!/usr/bin/python
+# -*- coding: utf-8 -*- 
 
 class Lixeira(object):
-	
+
 	def __init__(self, quantidade ='', tipo_lixo = '', __endereco = ''):
 		self.__endereco = __endereco
 		self.__quantidade = quantidade
@@ -12,7 +13,7 @@ class Lixeira(object):
 
 	def get_tipo_lixo(self):
 		return self.__tipo_lixo
-	
+
 	def set_tipo_lixo(self, value):
 		self.__tipo_lixo = value
 
@@ -20,7 +21,7 @@ class Lixeira(object):
 		self.__quantidade = value
 
 	def get_endereco(self):
-		return self.__endereco		
+		return self.__endereco
 
 	def set_endereco(self, value):
 		self.__endereco = value
