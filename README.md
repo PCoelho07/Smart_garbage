@@ -11,4 +11,4 @@
 ## Colaboradores
 
 * Pedro Phittipaldi. [Github page](https://github.com/PCoelho07)
-* Matheus Batistussi [Github page](www.google.com)
+* Matheus Batistussi [Github page](https://github.com/MBatistussi)
