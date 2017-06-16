@@ -2,7 +2,7 @@ from pessoa import *
 
 class Cliente(Pessoa):
 
-	def __init__(self, nome, cpf, endereco, lixeira):
+	def __init__(self, nome, cpf = '', endereco, lixeira = None):
 		Pessoa.__init__(nome, cpf, endereco)
 		self.__lixeira = lixeira
 
