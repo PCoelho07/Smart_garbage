@@ -1,5 +1,6 @@
 from bairro import *
 from cliente import *
+from dao_lixeiras import DaoLixeiras
 import random
 
 class Rota(object):
@@ -20,15 +21,15 @@ class Rota(object):
 	def is_rota_regular(self):
 		return self.__rota_regular
 
-	def __gerar_lista_lixeiras(self):
-		pass
-		# Pegar lixeiras do bairro correspondente ao bairro que se quer gerar a rota
+	def gerar_lista_lixeiras(self):
+		data_lixeiras = DaoLixeiras(self.__bairro)
+		self.__list_lixeira = data_lixeiras.get_lixeiras()
 
-	def __gerar_rota_personalizada(self):
+	def gerar_rota_personalizada(self):
 		pass
 
-	# Gerar rota com base apenas na qunatidade de lixo por lixeira ou cliente que realizou solicitação
-	def __gerar_rota_padrao(self, interested_list):
+	# Gerar rota usando critério de proximidade apenas
+	def gerar_rota_padrao(self, interested_list):
 		while interested_list.length > 0:
 			atual = self.__calcula_proximo(interested_list, 0, 0, 0)
 			lista_atual.append(atual)
