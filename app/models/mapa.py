@@ -5,14 +5,17 @@ import random
 		mais_proximo_distancia = 100
 		for c in clientlist:
 			distancia = math.sqrt( ((0 - c.coord_x)**2) + ((0 - c.coord_y)**2))
+
 			if primeiro == 0:
 				primeiro = 1
 				mais_proximo = c.id
 				mais_proximo_distancia = distancia
-			else:
-				if distancia < mais_proximo_distancia:
-					mais_proximo_distancia = distancia
-					mais_proximo = c.id
+				continue
+
+			if distancia < mais_proximo_distancia:
+				mais_proximo_distancia = distancia
+				mais_proximo = c.id
+
 		return mais_proximo
 
 
@@ -34,6 +37,3 @@ if __name__ == '__main__':
 				clientlist.remove(c)
 
 	print("Rota planejada")
-
-
-
