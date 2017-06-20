@@ -28,17 +28,18 @@ class Rota(object):
 		pass
 
 	# Gerar rota com base apenas na qunatidade de lixo por lixeira ou cliente que realizou solicitação
-	def __gerar_rota_padrao(self):
-		while self.__list_coleta.length > 0:
-			atual = self.__calcula_proximo(0, 0, 0)
+	def __gerar_rota_padrao(self, interested_list):
+		while interested_list.length > 0:
+			atual = self.__calcula_proximo(interested_list, 0, 0, 0)
 			lista_atual.append(atual)
 			for c in clientlist:
 				if c.id == atual:
 					clientlist.remove(c)
+		return None
 
-	def __calcula_proximo(self, x_atual, y_atual, primeiro):
+	def __calcula_proximo(self, clientlist, x_atual, y_atual, primeiro):
 		mais_proximo_distancia = 100
-		for c in self.__list_coleta:
+		for c in clientlist:
 			distancia = math.sqrt( ((0 - c.coord_x)**2) + ((0 - c.coord_y)**2))
 
 			if primeiro == 0:
