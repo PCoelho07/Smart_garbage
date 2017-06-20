@@ -4,9 +4,9 @@ class Rota(object):
 
 	def __init__(self, bairro = None):
 		self.__bairro = bairro
-		self.__list_lixeira = None
-		self.__list_coleta = None
-		self.__melhor_rota = None
+		self.__list_lixeira = []
+		self.__list_coleta = []
+		self.__melhor_rota = []
 		self.__rota_regular = True
 
 	def get_bairro(self):
