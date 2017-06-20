@@ -1,8 +1,8 @@
-
+# -*- coding: utf-8 -*- 
 class Lixeira(object):
 
 	def __init__(self, quantidade ='', tipo_lixo = '', endereco = None):
-		self.__endereco = __endereco		
+		self.__endereco = __endereco
 		self.__quantidade = quantidade
 		self.__tipo_lixo = tipo_lixo
 

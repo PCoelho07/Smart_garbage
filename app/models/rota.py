@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from bairro import *
 from cliente import *
 from dao_lixeiras import DaoLixeiras
@@ -5,15 +7,16 @@ import random
 
 class Rota(object):
 
-	def __init__(self, bairro = None):
+	def __init__(self, bairro):
 		self.__bairro = bairro
 		self.__list_lixeira = []
-		self.__list_coleta = []
-		self.__melhor_rota = []
-		self.__rota_regular = True
+		self.__melhor_rota = ()
+
+	def get_lixeiras(self):
+		return self.__list_lixeira
 
 	def get_bairro(self):
-		self.__bairro
+		return self.__bairro
 
 	def set_bairro(self, value):
 		self.__bairro = value
@@ -25,18 +28,31 @@ class Rota(object):
 		data_lixeiras = DaoLixeiras(self.__bairro)
 		self.__list_lixeira = data_lixeiras.get_lixeiras()
 
-	def gerar_rota_personalizada(self):
-		pass
+	def gerar_rota_personalizada(self, lista_coleta):
+		if len(lista_coleta) <= 0:
+			 return None
 
-	# Gerar rota usando critério de proximidade apenas
+		lista_coleta_lixeiras = []
+		for clientes in lista_coleta:
+			lixeira_cliente = clientes.get_lixeira()
+			id_cliente = clientes.get_id()
+			t_cliente = (id_cliente, lixeira_cliente)
+
+			lista_coleta_lixeiras.append(t_cliente)
+
+	# ------------------- TO DO -------------------
+
+
+
 	def gerar_rota_padrao(self, interested_list):
 		while interested_list.length > 0:
 			atual = self.__calcula_proximo(interested_list, 0, 0, 0)
 			lista_atual.append(atual)
-			for c in clientlist:
+			for c in interested_list:
 				if c.id == atual:
-					clientlist.remove(c)
-		return None
+					interested_list.remove(c)
+
+		return lista_atual
 
 	def __calcula_proximo(self, clientlist, x_atual, y_atual, primeiro):
 		mais_proximo_distancia = 100

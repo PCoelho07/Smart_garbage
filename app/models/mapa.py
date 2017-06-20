@@ -1,22 +1,23 @@
+# -*- coding: utf-8 -*-
 from cliente import *
 import random
 
-	def calcula_proximo(clientlist, x_atual, y_atual, primeiro):
-		mais_proximo_distancia = 100
-		for c in clientlist:
-			distancia = math.sqrt( ((0 - c.coord_x)**2) + ((0 - c.coord_y)**2))
+def calcula_proximo(clientlist, x_atual, y_atual, primeiro):
+	mais_proximo_distancia = 100
+	for c in clientlist:
+		distancia = math.sqrt( ((0 - c.coord_x)**2) + ((0 - c.coord_y)**2))
 
-			if primeiro == 0:
-				primeiro = 1
-				mais_proximo = c.id
-				mais_proximo_distancia = distancia
-				continue
+		if primeiro == 0:
+			primeiro = 1
+			mais_proximo = c.id
+			mais_proximo_distancia = distancia
+			continue
 
-			if distancia < mais_proximo_distancia:
-				mais_proximo_distancia = distancia
-				mais_proximo = c.id
+		if distancia < mais_proximo_distancia:
+			mais_proximo_distancia = distancia
+			mais_proximo = c.id
 
-		return mais_proximo
+	return mais_proximo
 
 
 if __name__ == '__main__':

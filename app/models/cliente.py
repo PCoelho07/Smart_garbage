@@ -12,3 +12,9 @@ class Cliente(Pessoa):
 
 	def set_lixeira(self, value):
 		self.__lixeira = value
+
+	def get_id(self):
+		return self.__id
+
+	def set_id(self, value):
+		self.__id = value

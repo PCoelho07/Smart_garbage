@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*- 
 class Bairro(object):
 
 	def __init__(self, nome = '', lixo = '',  populacao = ''):

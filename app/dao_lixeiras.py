@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import csv
-from lixeira import *
-from bairro import *
+from models.lixeira import *
+from models.bairro import *
 
 class DaoLixeiras(object):
 
@@ -11,7 +12,7 @@ class DaoLixeiras(object):
 
     def get_lixeiras(self):
         list_lixeiras = []
-        file_name = 'files/'+ str(self.__bairro_nome) + '.csv'
+        file_name = '../files/'+ str(self.__bairro_nome) + '.csv'
 
         data = csv.reader(open(file_name, 'r'))
 
