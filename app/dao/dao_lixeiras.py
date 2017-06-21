@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import csv
-from models.lixeira import *
-from models.bairro import *
+from app.models.lixeira import *
+from app.models.bairro import *
 
 class DaoLixeiras(object):
 

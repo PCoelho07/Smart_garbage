@@ -2,7 +2,7 @@
 
 from bairro import *
 from cliente import *
-from dao_lixeiras import DaoLixeiras
+from app.dao.dao_lixeiras import DaoLixeiras
 import random
 
 class Rota(object):
@@ -24,11 +24,12 @@ class Rota(object):
 	def is_rota_regular(self):
 		return self.__rota_regular
 
-	def gerar_lista_lixeiras(self):
+	def __gerar_lista_lixeiras(self):
 		data_lixeiras = DaoLixeiras(self.__bairro)
 		self.__list_lixeira = data_lixeiras.get_lixeiras()
 
 	def gerar_rota_personalizada(self, lista_coleta):
+		self.__gerar_lista_lixeiras()
 		if len(lista_coleta) <= 0:
 			 raise Exception('Atributo deve ser uma lista não-vazia')
 
@@ -40,7 +41,8 @@ class Rota(object):
 
 
 	def gerar_rota_padrao(self):
-		pass
+		self.__gerar_lista_lixeiras()
+		return self.__vizinho_mais_proximo(self.__list_lixeira)
 
 	def __vizinho_mais_proximo(self, interested_list):
 		lista_atual = []
