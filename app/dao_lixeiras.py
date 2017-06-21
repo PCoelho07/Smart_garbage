@@ -10,13 +10,14 @@ class DaoLixeiras(object):
         self.__bairro_nome = bairro.get_nome()
 
 
-    def get_lixeiras(self):
+    def get_lixeiras_from_csv(self):
         list_lixeiras = []
         file_name = '../files/'+ str(self.__bairro_nome) + '.csv'
 
         data = csv.reader(open(file_name, 'r'))
 
         for rows in data:
-            list_lixeiras.append(tuple(rows))
+            lixeira = Lixeira(rows[0], rows[1], rows[2])
+            list_lixeiras.append(lixeira)
 
         return list_lixeiras

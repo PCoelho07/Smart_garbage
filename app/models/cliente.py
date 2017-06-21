@@ -2,10 +2,10 @@ from pessoa import *
 
 class Cliente(Pessoa):
 
-	def __init__(self, nome, coord_x, coord_y, id, lixeira = None):
-		Pessoa.__init__(nome, coord_x, coord_y)
+	def __init__(self, nome, identificador, lixeira = None):
+		Pessoa.__init__(nome, lixeira.get_coordenada_x(), lixeira.get_coordenada_y())
 		self.__lixeira = lixeira
-		self.__id = id
+		self.__identificador = identificador
 
 	def get_lixeira(self):
 		return self.__lixeira
@@ -13,8 +13,8 @@ class Cliente(Pessoa):
 	def set_lixeira(self, value):
 		self.__lixeira = value
 
-	def get_id(self):
-		return self.__id
+	def get_identificador(self):
+		return self.__identificador
 
-	def set_id(self, value):
-		self.__id = value
+	def set_identificador(self, value):
+		self.__identificador = value

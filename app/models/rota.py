@@ -30,26 +30,26 @@ class Rota(object):
 
 	def gerar_rota_personalizada(self, lista_coleta):
 		if len(lista_coleta) <= 0:
-			 return None
+			 raise Exception('Atributo deve ser uma lista não-vazia')
 
-		lista_coleta_lixeiras = []
-		for clientes in lista_coleta:
-			lixeira_cliente = clientes.get_lixeira()
-			id_cliente = clientes.get_id()
-			t_cliente = (id_cliente, lixeira_cliente)
+		lista_coleta.sort(key=lambda x: x.get_lixeira().get_quantidade(), reverse=True)
+		rota_padrao = self.__vizinho_mais_proximo(self.__list_lixeira)
+		rota_personalizada = list(lista_coleta + rota_padrao)
 
-			lista_coleta_lixeiras.append(t_cliente)
-
-	# ------------------- TO DO -------------------
+		return rota_personalizada
 
 
+	def gerar_rota_padrao(self):
+		pass
 
-	def gerar_rota_padrao(self, interested_list):
-		while interested_list.length > 0:
-			atual = self.__calcula_proximo(interested_list, 0, 0, 0)
+	def __vizinho_mais_proximo(self, interested_list):
+		lista_atual = []
+		lista_atual.append(interested_list[0].get_identificador())
+		for item in interested_list:
+			atual = self.__calcula_proximo(interested_list, item.get_coordenada_x(), item.get_coordenada_y(), 0)
 			lista_atual.append(atual)
 			for c in interested_list:
-				if c.id == atual:
+				if c.get_identificador() == atual:
 					interested_list.remove(c)
 
 		return lista_atual
@@ -57,16 +57,16 @@ class Rota(object):
 	def __calcula_proximo(self, clientlist, x_atual, y_atual, primeiro):
 		mais_proximo_distancia = 100
 		for c in clientlist:
-			distancia = math.sqrt( ((0 - c.coord_x)**2) + ((0 - c.coord_y)**2))
+			distancia = math.sqrt( ((x_atual - c.coord_x)**2) + ((y_atual - c.coord_y)**2))
 
 			if primeiro == 0:
 				primeiro = 1
-				mais_proximo = c.id
+				mais_proximo = c.get_identificador()
 				mais_proximo_distancia = distancia
 				continue
 
 			if distancia < mais_proximo_distancia:
 				mais_proximo_distancia = distancia
-				mais_proximo = c.id
+				mais_proximo = c.get_identificador()
 
 		return mais_proximo

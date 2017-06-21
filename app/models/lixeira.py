@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 class Lixeira(object):
 
-	def __init__(self, quantidade ='', tipo_lixo = '', endereco = None):
-		self.__endereco = __endereco
+	def __init__(self,  identificador, coord_x, coord_y, quantidade ='', tipo_lixo = ''):
+		self.__identificador = identificador
+		self.__coord_x = coord_x
+		self.__coord_y = coord_y
 		self.__quantidade = quantidade
 		self.__tipo_lixo = tipo_lixo
 
@@ -18,8 +20,14 @@ class Lixeira(object):
 	def set_quantidade(self, value):
 		self.__quantidade = value
 
-	def get_endereco(self):
-		return self.__endereco
+	def get_coordenada_x(self):
+		return self.__coord_x
 
-	def set_endereco(self, value):
-		self.__endereco = value
+	def get_coordenada_y(self):
+		return self.__coord_y
+
+	def set_coordenada_x(self, value):
+		self.__coord_x = value
+
+	def set_coordenada_y(self, value):
+		self.__coord_y = value
