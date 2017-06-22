@@ -2,7 +2,7 @@
 
 from bairro import *
 from cliente import *
-from app.dao.dao_lixeiras import DaoLixeiras
+from dao.dao_lixeiras import DaoLixeiras
 import random
 
 class Rota(object):

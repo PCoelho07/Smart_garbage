@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.models.rota import *
+from models.rota import *
+from dao.dao_clientes import *
 
 class RotaController(object):
 
@@ -9,5 +10,10 @@ class RotaController(object):
 
     def calcular_rota(self, bairro):
         rota = Rota(bairro)
+        dao_c = DaoClientes()
+        list_coleta = dao_c.get_clientes_interessados('clientes')
+        
+        if len(list_coleta) <= 0:
+            return rota.gerar_rota_padrao()
 
-        return rota.gerar_rota_personalizada(lista_coleta)
+        return rota.gerar_rota_personalizada(list_coleta)

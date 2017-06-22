@@ -2,7 +2,7 @@ from pessoa import *
 
 class Cliente(Pessoa):
 
-	def __init__(self, nome, identificador, lixeira = None):
+	def __init__(self, identificador, lixeira, nome = ''):
 		Pessoa.__init__(nome, lixeira.get_coordenada_x(), lixeira.get_coordenada_y())
 		self.__lixeira = lixeira
 		self.__identificador = identificador

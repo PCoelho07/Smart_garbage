@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 import csv
-from app.models.lixeira import *
-from app.models.bairro import *
+from models.lixeira import *
+from models.bairro import *
 
 class DaoLixeiras(object):
 
     """docstring for DaoLixeiras."""
     def __init__(self, bairro = Bairro):
-        self.__bairro_nome = bairro.get_nome()
+        self.__bairro = bairro
 
 
     def get_lixeiras_from_csv(self):
         list_lixeiras = []
-        file_name = '../files/'+ str(self.__bairro_nome) + '.csv'
+        file_name = '../files/'+ str(self.__bairro.get_nome()) + '.csv'
 
         data = csv.reader(open(file_name, 'r'))
 
