@@ -7,6 +7,9 @@ class Lixeira(object):
 		self.__coord_y = coord_y
 		self.__quantidade = quantidade
 		self.__tipo_lixo = tipo_lixo
+	
+	def get_identificador(self):
+		return self.__identificador
 
 	def get_quantidade(self):
 		return self.__quantidade

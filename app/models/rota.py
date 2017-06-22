@@ -4,6 +4,7 @@ from bairro import *
 from cliente import *
 from dao.dao_lixeiras import DaoLixeiras
 import random
+import math
 
 class Rota(object):
 
@@ -26,10 +27,11 @@ class Rota(object):
 
 	def __gerar_lista_lixeiras(self):
 		data_lixeiras = DaoLixeiras(self.__bairro)
-		self.__list_lixeira = data_lixeiras.get_lixeiras()
+		self.__list_lixeira = data_lixeiras.get_lixeiras_from_csv()
 
 	def gerar_rota_personalizada(self, lista_coleta):
 		self.__gerar_lista_lixeiras()
+		
 		if len(lista_coleta) <= 0:
 			 raise Exception('Atributo deve ser uma lista não-vazia')
 
@@ -48,7 +50,7 @@ class Rota(object):
 		lista_atual = []
 		lista_atual.append(interested_list[0].get_identificador())
 		for item in interested_list:
-			atual = self.__calcula_proximo(interested_list, item.get_coordenada_x(), item.get_coordenada_y(), 0)
+			atual = self.__calcula_proximo(interested_list, float(item.get_coordenada_x()), float(item.get_coordenada_y()), 0)
 			lista_atual.append(atual)
 			for c in interested_list:
 				if c.get_identificador() == atual:
@@ -59,7 +61,7 @@ class Rota(object):
 	def __calcula_proximo(self, clientlist, x_atual, y_atual, primeiro):
 		mais_proximo_distancia = 100
 		for c in clientlist:
-			distancia = math.sqrt( ((x_atual - c.coord_x)**2) + ((y_atual - c.coord_y)**2))
+			distancia = math.sqrt( ( (x_atual - float( c.get_coordenada_x() ) )**2) + ( ( y_atual - float( c.get_coordenada_y() ) )**2) )
 
 			if primeiro == 0:
 				primeiro = 1

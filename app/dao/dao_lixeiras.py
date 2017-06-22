@@ -6,15 +6,20 @@ from models.bairro import *
 class DaoLixeiras(object):
 
     """docstring for DaoLixeiras."""
-    def __init__(self, bairro = Bairro):
+    def __init__(self, bairro = None):
         self.__bairro = bairro
+        self.__file_name = ''
+
+        if bairro is not None:
+            self.__file_name = self.__bairro.get_nome()
+
 
 
     def get_lixeiras_from_csv(self):
         list_lixeiras = []
-        file_name = '../files/'+ str(self.__bairro.get_nome()) + '.csv'
+        file_path = 'app/files/'+ str(self.__file_name) + '.csv'
 
-        data = csv.reader(open(file_name, 'r'))
+        data = csv.reader(open(file_path, 'r'))
 
         for rows in data:
             lixeira = Lixeira(rows[0], rows[1], rows[2])

@@ -10,8 +10,8 @@ class RotaController(object):
 
     def calcular_rota(self, bairro):
         rota = Rota(bairro)
-        dao_c = DaoClientes()
-        list_coleta = dao_c.get_clientes_interessados('clientes')
+        dao_c = DaoClientes(bairro)
+        list_coleta = dao_c.get_clientes_interessados()
         
         if len(list_coleta) <= 0:
             return rota.gerar_rota_padrao()
