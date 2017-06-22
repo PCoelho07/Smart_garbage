@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import csv
-from models.cliente import * 
+from models.cliente import *
 from models.lixeira import *
-from dao_lixeiras import * 
+from dao_lixeiras import *
 
 
 class DaoClientes(object):
@@ -14,7 +14,7 @@ class DaoClientes(object):
 
     def get_clientes_interessados(self):
         list_coleta = []
-        
+
         file_path = 'app/files/'+ str(self.__file_name) + '.csv'
 
         data = csv.reader(open(file_path, 'r'))
@@ -27,5 +27,5 @@ class DaoClientes(object):
                 if rows[1] == lx.get_identificador():
                     cliente = Cliente(rows[0], lx)
                     list_coleta.append(cliente)
-                    
+
         return list_coleta

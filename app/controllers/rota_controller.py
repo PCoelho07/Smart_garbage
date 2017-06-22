@@ -12,7 +12,8 @@ class RotaController(object):
         rota = Rota(bairro)
         dao_c = DaoClientes(bairro)
         list_coleta = dao_c.get_clientes_interessados()
-        
+        # list_coleta = [x.get_nome() for x in list_coleta]
+
         if len(list_coleta) <= 0:
             return rota.gerar_rota_padrao()
 

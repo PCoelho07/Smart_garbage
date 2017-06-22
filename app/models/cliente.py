@@ -3,7 +3,7 @@ from pessoa import *
 class Cliente(Pessoa):
 
 	def __init__(self, identificador, lixeira = None, nome = ''):
-		Pessoa.__init__(nome)
+		Pessoa.__init__(self, nome)
 		self.__lixeira = lixeira
 		self.__identificador = identificador
 

@@ -31,11 +31,12 @@ class Rota(object):
 
 	def gerar_rota_personalizada(self, lista_coleta):
 		self.__gerar_lista_lixeiras()
-		
+
 		if len(lista_coleta) <= 0:
 			 raise Exception('Atributo deve ser uma lista não-vazia')
 
 		lista_coleta.sort(key=lambda x: x.get_lixeira().get_quantidade(), reverse=True)
+		lista_coleta = [x.get_identificador() for x in lista_coleta]
 		rota_padrao = self.__vizinho_mais_proximo(self.__list_lixeira)
 		rota_personalizada = list(lista_coleta + rota_padrao)
 
